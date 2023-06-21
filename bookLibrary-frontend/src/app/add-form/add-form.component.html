@@ -1,0 +1,39 @@
+<button class="button-toggle" (click)="toggle()">Add book</button>
+
+<div *ngIf="modalWindow" class="modal-overlay">
+    <div class="modal">
+        <h2>Add Book</h2>
+        <form id="editForm" #form>
+            <div>
+                <label for="title">Title:</label>
+                <span class="text-danger" *ngIf="errorMessage['title']!==''">
+                    {{errorMessage["title"]}}
+                </span>
+                <input type="text" id="title" name="title" [(ngModel)]="newBook.title" required>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <span class="text-danger" *ngIf="errorMessage['title']!==''">
+                    {{errorMessage["author"]}}
+                </span>
+                <input type="text" id="author" name="author" [(ngModel)]="newBook.author" required>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <span class="text-danger" *ngIf="errorMessage['title']!==''">
+                    {{errorMessage["category"]}}
+                </span>
+                <input type="text" id="category" name="category" [(ngModel)]="newBook.category" required>
+            </div>
+            <div>
+                <label for="rating">Rating:</label>
+                <span class="text-danger" *ngIf="errorMessage['title']!==''">
+                    {{errorMessage["rating"]}}
+                </span>
+                <input type="number" id="rating" name="rating" [(ngModel)]="newBook.rating" required>
+            </div><br>
+        </form>
+        <button class="submit-button" (click)="add()">Submit</button>
+        <button class="close-button close" (click)="toggle()">Cancel</button>
+    </div>
+</div>

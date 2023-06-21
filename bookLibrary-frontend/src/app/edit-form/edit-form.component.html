@@ -1,0 +1,38 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <h2>Edit Book</h2>
+        <form id="editForm" #form>
+            <div>
+                <label for="title">Title:</label>
+                <span class="text-danger" *ngIf="errorMessage['title']!==''">
+                    {{errorMessage["title"]}}
+                </span>
+                <input type="text" id="title" name="title" [value]="selectedBook?.title" [(ngModel)]="newTitle" required>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <span class="text-danger" *ngIf="errorMessage['author']!==''">
+                    {{errorMessage["author"]}}
+                </span>
+                <input type="text" id="author" name="author" [value]="selectedBook?.author" [(ngModel)]="newAuthor" required>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <span class="text-danger" *ngIf="errorMessage['category']!==''">
+                    {{errorMessage["category"]}}
+                </span>
+                <input type="text" id="category" name="category" [value]="selectedBook?.category" [(ngModel)]="newCategory" required>
+            </div>
+            <div>
+                <label for="rating">Rating:</label>
+                <span class="text-danger" *ngIf="errorMessage['rating']!==''">
+                    {{errorMessage["rating"]}}
+                </span>
+                <input type="number" id="rating" name="rating" [value]="selectedBook?.rating" [(ngModel)]="newRating" required>
+            </div><br>
+        </form>
+        <button class="submit-button" (click)="edit()">Submit</button>
+
+        <button class="close-button close" (click)="closeModal()">Cancel</button>
+    </div>
+</div>

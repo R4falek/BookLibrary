@@ -1,0 +1,11 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <h2>Are you sure?</h2>
+        <div class="book-details">
+            <p><strong>Title:</strong> {{ selectedBook?.title }}</p>
+            <p><strong>Author:</strong> {{ selectedBook?.author }}</p>
+        </div>
+        <button class="submit-button" (click)="delete()">Yes</button>
+        <button class="close-button" (click)="closeModal()">No</button>
+    </div>
+</div>

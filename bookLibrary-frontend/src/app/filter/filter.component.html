@@ -1,0 +1,32 @@
+<button (click)="toggleFilter()">Filter</button>
+
+<div class="modal-overlay" *ngIf="toggle">
+    <div class="modal">
+        <span class="close" (click)="toggleFilter()">&times;</span>
+        <h2>Filter</h2>
+        <div>
+            <label for="title">Title:</label>
+            <select [(ngModel)]="titleFilter" (ngModelChange)="onChangeSelect()">
+                <option value="" selected>All</option>
+                <option *ngFor="let option of titleOptions" value="{{option}}">{{option}}</option>
+            </select>
+            <label for="title">Author:</label>
+            <select [(ngModel)]="authorFilter" (ngModelChange)="onChangeSelect()">
+                <option value="" selected>All</option>
+                <option *ngFor="let option of authorOptions" value="{{option}}">{{option}}</option>
+            </select>
+            <label for="title">Category:</label>
+            <select [(ngModel)]="categoryFilter" (ngModelChange)="onChangeSelect()">
+                <option value="" selected>All</option>
+                <option *ngFor="let option of categoryOptions" value="{{option}}">{{option}}</option>
+            </select>
+            <label for="title">Rating:</label>
+            <select [(ngModel)]="ratingFilter" (ngModelChange)="onChangeSelect()">
+                <option value="" selected>All</option>
+                <option *ngFor="let option of ratingOptions" value="{{option}}">{{option}}</option>
+            </select>
+            <button (click)="applyFilter(true)">Apply</button>
+            <button (click)="clearFilters()">Clear</button>
+        </div>
+    </div>
+</div>

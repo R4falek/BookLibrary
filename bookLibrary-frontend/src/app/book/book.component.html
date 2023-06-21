@@ -1,0 +1,36 @@
+<div class="containter">
+  <app-filter (filteredBooksEmiter)="filterBooks($event)"></app-filter>
+  <h1>Book Library</h1>
+  <app-add-form (close)="addBook($event)"></app-add-form>
+</div>
+
+<table>
+    <thead>
+      <tr>
+        <th (click)="sortTable('id')" [style.background-color]="sortBy === 'id' ? '#50a3e3' : '#f2f2f2'" id="id">ID</th>
+        <th (click)="sortTable('title')" [style.background-color]="sortBy === 'title' ? '#50a3e3' : '#f2f2f2'" id="title">Title</th>
+        <th (click)="sortTable('author')" [style.background-color]="sortBy === 'author' ? '#50a3e3' : '#f2f2f2'" id="author">Author</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td style="width: 80px;">
+          <button class="info-button" (click)="toggleInfo(book)">Show Info</button>
+        </td>
+        <td style="width: 80px;">
+          <button class="edit-button" (click)="editBook(book)">Edit</button>
+        </td>
+        <td style="width: 80px;">
+          <button class="delete-button" (click)="deleteBook(book)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-book-details *ngIf="showDetails" (close)="closeInfo($event)"></app-book-details>
+  <app-delete-window *ngIf="deleteWindow" (close)="closeDelete($event)"></app-delete-window>
+  <app-edit-form *ngIf="editWindow" (close)="closeEdit($event)"></app-edit-form>

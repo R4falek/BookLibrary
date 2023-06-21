@@ -1,0 +1,12 @@
+<div class="modal-overlay">
+    <div class="modal">
+        <h2>Book Details</h2>
+        <div class="book-details">
+            <p><strong>Title:</strong> {{ selectedBook?.title }}</p>
+            <p><strong>Author:</strong> {{ selectedBook?.author }}</p>
+            <p><strong>Category:</strong> {{ selectedBook?.category }}</p>
+            <p><strong>Rating:</strong> {{ selectedBook?.rating }}</p>
+        </div>
+        <button class="close-button" (click)="closeModal()">Close</button>
+    </div>
+</div>
